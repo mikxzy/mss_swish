@@ -49,7 +49,13 @@ export default async function handler(req, res) {
 
   try {
     const swishRes = await fetch(url, { ...options, body });
-    const data = await swishRes.json();
+    let data;
+    try {
+      data = await swishRes.json();
+    } catch {
+      const raw = await swishRes.text();
+      data = { raw };
+    }
     res.status(swishRes.status).json(data);
   } catch (err) {
     console.error('Swish error:', err);
