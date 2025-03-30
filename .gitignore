@@ -1,0 +1,15 @@
+# ✅ Skydda känsliga filer
+.env
+*.pem
+*.key
+*.p12
+
+# ✅ Node.js beroenden (om du kör lokalt)
+node_modules/
+package-lock.json
+
+# ✅ Mac/OS-specifika filer
+.DS_Store
+
+# ✅ Vercel build/artifacts (om de skapas lokalt)
+.vercel/
